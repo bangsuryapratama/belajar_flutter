@@ -1,3 +1,4 @@
+import 'package:bangsur_project/container_widget/container1.dart';
 import 'package:bangsur_project/main_layout.dart';
 import 'package:flutter/material.dart';
 
@@ -7,15 +8,17 @@ class ContainerDua extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MainLayout(
-      title:'Container 2', 
+      title:'Container 2',        
+      // style: TextStyle(color: Colors.white),
       body: Container(
         margin: EdgeInsets.all(20),
         decoration: BoxDecoration(
           gradient: LinearGradient(colors: [
            
-            Colors.white,
-            Colors.lightBlue,
-            Colors.blue,
+            Colors.black,
+            Colors.redAccent,
+            Colors.redAccent,
+            Colors.black,
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight
@@ -24,8 +27,20 @@ class ContainerDua extends StatelessWidget{
         ),
         child: Center(
           child: ElevatedButton(
-            onPressed: () {},
-            child: Text('MONYUONG'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black
+            ),
+            onPressed: () {
+              Navigator.push(
+               context,
+               MaterialPageRoute(
+                builder: (context) 
+                => ContainerSatu()),
+              );
+            },
+            child: Text('MONYUONG',
+              style: TextStyle(color: Colors.redAccent),
+            ),
           ),
         ) ,
       ),

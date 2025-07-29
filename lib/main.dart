@@ -2,6 +2,9 @@
 
 import 'package:bangsur_project/container_widget/container1.dart';
 import 'package:bangsur_project/container_widget/container2.dart';
+import 'package:bangsur_project/stack_widget/stack1.dart';
+import 'package:bangsur_project/stack_widget/stack2.dart';
+import 'package:bangsur_project/stack_widget/stack3.dart';
 import 'package:flutter/material.dart';
 import 'package:bangsur_project/main_layout.dart';
 
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ContainerDua(),
+      home: StackThree(),
     );
   }
 }
