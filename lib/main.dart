@@ -2,6 +2,11 @@
 
 import 'package:bangsur_project/container_widget/container1.dart';
 import 'package:bangsur_project/container_widget/container2.dart';
+import 'package:bangsur_project/row_column_widget/column1.dart';
+import 'package:bangsur_project/row_column_widget/lat_row_col.dart';
+import 'package:bangsur_project/row_column_widget/latihan_satu.dart';
+import 'package:bangsur_project/row_column_widget/news_card.dart';
+import 'package:bangsur_project/row_column_widget/row1.dart';
 import 'package:bangsur_project/stack_widget/stack1.dart';
 import 'package:bangsur_project/stack_widget/stack2.dart';
 import 'package:bangsur_project/stack_widget/stack3.dart';
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StackThree(),
+      home: NewsCard(),
     );
   }
 }
