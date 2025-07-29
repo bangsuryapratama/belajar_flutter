@@ -1,9 +1,11 @@
-import 'dart:html';
+// ignore_for_file: prefer_const_constructors
 
+import 'package:bangsur_project/container_widget/container1.dart';
+import 'package:bangsur_project/container_widget/container2.dart';
 import 'package:flutter/material.dart';
 import 'package:bangsur_project/main_layout.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -14,9 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HelloFlutter(
-
-      )
+      home: ContainerDua(),
     );
   }
 }
@@ -29,17 +29,16 @@ class HelloFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainLayout(
-      title: 'ALAMAK FLUTTER AJOJING',
+      title: 'Ahmad Rujak Cianjur',
       body: Center(
-        child: Text(' Jawa muda berkelana tua cari bencana ',
-        style: 
-        TextStyle(
-        fontSize: 24,
-        color: Colors.amberAccent,
-        fontWeight: FontWeight.bold,
-        backgroundColor: Colors.red,
-          )
-        ,), 
+        child: Text(
+          'Hello COKK',
+          style: TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              backgroundColor: Colors.blueAccent),
+        ),
       ),
     );
   }
