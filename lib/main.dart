@@ -2,6 +2,11 @@
 
 import 'package:bangsur_project/container_widget/container1.dart';
 import 'package:bangsur_project/container_widget/container2.dart';
+import 'package:bangsur_project/grid_view/grid_satu.dart';
+import 'package:bangsur_project/grid_view/grid_screen.dart';
+import 'package:bangsur_project/list_widget/list1.dart';
+import 'package:bangsur_project/list_widget/list2.dart';
+import 'package:bangsur_project/list_widget/list_screen.dart';
 import 'package:bangsur_project/row_column_widget/column1.dart';
 import 'package:bangsur_project/row_column_widget/lat_row_col.dart';
 import 'package:bangsur_project/row_column_widget/latihan_satu.dart';
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NewsCard(),
+      home: GridProductPage(),
     );
   }
 }

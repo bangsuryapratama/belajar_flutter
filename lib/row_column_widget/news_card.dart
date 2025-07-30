@@ -7,7 +7,7 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final double maxWidth = 600;
+    final double maxWidth = 650;
 
     return MainLayout(
       title: 'News Card',

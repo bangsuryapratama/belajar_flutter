@@ -12,7 +12,7 @@ class MainLayout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 255, 0, 0),
+        backgroundColor: Colors.blueGrey,
         title: Text(title),
       ),
       body: body,
