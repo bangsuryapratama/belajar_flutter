@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bangsur_project/main_layout.dart';
 
+
 class OutputFormScreen extends StatelessWidget {
   final String nama, jk, tglLahir, agama;
 

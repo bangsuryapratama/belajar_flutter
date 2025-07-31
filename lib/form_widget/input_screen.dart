@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:bangsur_project/form_widget/output_screen.dart';
+
 import 'package:bangsur_project/main_layout.dart';
+
 
 class InputFormScreen extends StatefulWidget {
   const InputFormScreen({super.key});
@@ -12,181 +13,182 @@ class InputFormScreen extends StatefulWidget {
 
 class _InputFormScreenState extends State<InputFormScreen> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _namaController = TextEditingController();
-  TextEditingController _tglLahirController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController tglLahirController = TextEditingController();
 
   String _jk = "";
   String _agama = "";
-  String? _jkError;
-  String? _agamaError;
+  String? _error;
 
-  final List<String> agamaList = [
+  final List<String> agama = [
     "Islam",
     "Kristen",
     "Katolik",
     "Hindu",
     "Buddha",
-    "Khonghucu",
+    "Konghucu",
   ];
 
   @override
   void initState() {
     super.initState();
-    _tglLahirController.text = "";
+    tglLahirController.text = "";
   }
 
   @override
   Widget build(BuildContext context) {
     return MainLayout(
       title: "Input Form",
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: _namaController,
-                decoration: InputDecoration(
-                  labelText: "Nama",
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) return "Input Nama";
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Jenis Kelamin",   
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Text(
+                  "Formulir Biodata",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 20,
                   ),
                 ),
-              ),
-              Row(
-                children: [
-                  Radio<String>(
-                    value: "Laki-laki",
-                    groupValue: _jk,
-                    onChanged: (value) {
-                      setState(() {
-                        _jk = value!;
-                        _jkError = null;
-                      });
-                    },
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _nameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Nama",
                   ),
-                  Text("Laki-laki"),
-                  Radio<String>(
-                    value: "Perempuan",
-                    groupValue: _jk,
-                    onChanged: (value) {
-                      setState(() {
-                        _jk = value!;
-                        _jkError = null;
-                      });
-                    },
-                  ),
-                  Text("Perempuan"),
-                ],
-              ),
-              if (_jkError != null)
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
+                  validator: (value) {
+                    if (value!.isEmpty) return "Input Nama";
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
                   child: Text(
-                    _jkError!,
-                    style: TextStyle(color: Colors.red),
+                    "Jenis Kelamin",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
                 ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _tglLahirController,
-                decoration: InputDecoration(
-                  labelText: "Tanggal Lahir",
-                  border: OutlineInputBorder(),
+                Row(
+                  children: [
+                    Radio<String>(
+                      value: "Laki-laki",
+                      groupValue: _jk,
+                      onChanged: (val) {
+                        setState(() {
+                          _jk = val!;
+                          _error = null;
+                        });
+                      },
+                    ),
+                    Text("Laki-laki"),
+                    Radio<String>(
+                      value: "Perempuan",
+                      groupValue: _jk,
+                      onChanged: (val) {
+                        setState(() {
+                          _jk = val!;
+                          _error = null;
+                        });
+                      },
+                    ),
+                    Text("Perempuan"),
+                  ],
                 ),
-                validator: (value) {
-                  if (value!.isEmpty) return "Input Tanggal Lahir";
-                  return null;
-                },
-                onTap: () async {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                  DateTime? pickedDate = await showDatePicker(
-                    context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2101),
-                  );
-
-                  if (pickedDate != null) {
-                    String formattedDate =
-                        DateFormat('dd-MM-yyyy').format(pickedDate);
+                if (_error != null)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      _error!,
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                const SizedBox(height: 10),
+                TextFormField(
+                  controller: tglLahirController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Tanggal Lahir",
+                  ),
+                  validator: (value) {
+                    if (value!.isEmpty) return "Input Tanggal Lahir";
+                    return null;
+                  },
+                  onTap: () async {
+                    FocusScope.of(context).requestFocus(FocusNode());
+                    final DateTime? picked = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime(2100),
+                    );
+                    if (picked != null) {
+                      setState(() {
+                        tglLahirController.text =
+                            "${picked.year}-${picked.month}-${picked.day}";
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(height: 10),
+                DropdownButtonFormField(
+                  value: _agama.isEmpty ? null : _agama,
+                  hint: Text("Pilih Agama"),
+                  items: agama
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(e),
+                        ),
+                      )
+                      .toList(),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                  onChanged: (value) {
                     setState(() {
-                      _tglLahirController.text = formattedDate;
+                      _agama = value!;
                     });
-                  }
-                },
-              ),
-              const SizedBox(height: 16),
-              DropdownButtonFormField(
-                decoration: InputDecoration(
-                  labelText: "Agama",
-                  border: OutlineInputBorder(),
+                  },
                 ),
-                items: agamaList.map((agama) {
-                  return DropdownMenuItem(
-                    value: agama,
-                    child: Text(agama),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    _agama = value!;
-                    _agamaError = null;
-                  });
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Pilih Agama";
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: _submit,
-                child: Text("Simpan"),
-              ),
-            ],
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_jk.isEmpty) {
+                      setState(() => _error = "Pilih jenis kelamin");
+                    }
+
+                    if (!_formKey.currentState!.validate()) return;
+                    if (_jk.isEmpty || _agama.isEmpty) return;
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OutputFormScreen(
+                          nama: _nameController.text,
+                          jk: _jk,
+                          tglLahir: tglLahirController.text,
+                          agama: _agama,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text("Submit"),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
-  }
-
-  void _submit() {
-    if (_formKey.currentState!.validate()) {
-      if (_jk.isEmpty) {
-        setState(() {
-          _jkError = "Pilih jenis kelamin";
-        });
-      }
-
-      if (_agama.isEmpty) return;
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => OutputFormScreen(
-            nama: _namaController.text,
-            jk: _jk,
-            tglLahir: _tglLahirController.text,
-            agama: _agama,
-          ),
-        ),
-      );
-    }
   }
 }
