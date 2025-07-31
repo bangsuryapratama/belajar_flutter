@@ -4,6 +4,7 @@ import 'package:bangsur_project/container_widget/container1.dart';
 import 'package:bangsur_project/container_widget/container2.dart';
 import 'package:bangsur_project/grid_view/grid_satu.dart';
 import 'package:bangsur_project/grid_view/grid_screen.dart';
+import 'package:bangsur_project/latihan/grid_eo.dart';
 import 'package:bangsur_project/list_widget/list1.dart';
 import 'package:bangsur_project/list_widget/list2.dart';
 import 'package:bangsur_project/list_widget/list_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GridProductPage(),
+      home: GridEventO(),
     );
   }
 }
