@@ -2,6 +2,7 @@
 
 import 'package:bangsur_project/container_widget/container1.dart';
 import 'package:bangsur_project/container_widget/container2.dart';
+import 'package:bangsur_project/form_widget/input_screen.dart';
 import 'package:bangsur_project/grid_view/grid_satu.dart';
 import 'package:bangsur_project/grid_view/grid_screen.dart';
 import 'package:bangsur_project/latihan/grid_eo.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GridEventO(),
+      home: InputFormScreen(),
     );
   }
 }

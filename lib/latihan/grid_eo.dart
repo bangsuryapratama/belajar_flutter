@@ -11,6 +11,21 @@ class GridEventO extends StatelessWidget {
       'price': 'Masuk',
       'image': 'https://lzd-img-global.slatic.net/g/p/142d2d7f01f712ee759d37bd2ee75cef.jpg_720x720q80.jpg'
     },
+     {
+      'name': 'Event Organizer',
+      'price': 'Masuk',
+      'image': 'https://lzd-img-global.slatic.net/g/p/142d2d7f01f712ee759d37bd2ee75cef.jpg_720x720q80.jpg'
+    },
+     {
+      'name': 'Event Organizer',
+      'price': 'Masuk',
+      'image': 'https://lzd-img-global.slatic.net/g/p/142d2d7f01f712ee759d37bd2ee75cef.jpg_720x720q80.jpg'
+    },
+     {
+      'name': 'Event Organizer',
+      'price': 'Masuk',
+      'image': 'https://lzd-img-global.slatic.net/g/p/142d2d7f01f712ee759d37bd2ee75cef.jpg_720x720q80.jpg'
+    },
   ];
 
   @override
