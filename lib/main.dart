@@ -5,10 +5,13 @@ import 'package:bangsur_project/container_widget/container2.dart';
 import 'package:bangsur_project/form_widget/input_screen.dart';
 import 'package:bangsur_project/grid_view/grid_satu.dart';
 import 'package:bangsur_project/grid_view/grid_screen.dart';
+import 'package:bangsur_project/hotel/hotel_detail_grid.dart';
+import 'package:bangsur_project/hotel/hotel_grid.dart';
 import 'package:bangsur_project/latihan/grid_eo.dart';
 import 'package:bangsur_project/list_widget/list1.dart';
 import 'package:bangsur_project/list_widget/list2.dart';
 import 'package:bangsur_project/list_widget/list_screen.dart';
+import 'package:bangsur_project/nyoba/product_grid_screen.dart';
 import 'package:bangsur_project/row_column_widget/column1.dart';
 import 'package:bangsur_project/row_column_widget/lat_row_col.dart';
 import 'package:bangsur_project/row_column_widget/latihan_satu.dart';
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: InputFormScreen(),
+      home: HotelGrid(),
     );
   }
 }
@@ -52,7 +55,7 @@ class HelloFlutter extends StatelessWidget {
               fontSize: 24,
               color: Colors.white,
               fontWeight: FontWeight.w600,
-              backgroundColor: Colors.blueAccent),
+              backgroundColor: Colors.white54),
         ),
       ),
     );
